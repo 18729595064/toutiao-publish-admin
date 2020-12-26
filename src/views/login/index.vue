@@ -93,7 +93,7 @@
           // 跳转到首页
           this.$router.push({
             name: 'home'
-          })
+          }).catch(err => {})
 
           // console.log(res);
           //把用户信息存储到本地，方便其他页面使用

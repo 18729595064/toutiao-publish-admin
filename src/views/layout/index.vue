@@ -84,7 +84,7 @@
             message: '退出成功'
           });
           window.localStorage.removeItem("user");
-          this.$router.push("/login");
+          this.$router.push("/login").catch(err => {console.log(err);});
         }).catch(() => {
           this.$message({
             type: 'info',

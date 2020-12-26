@@ -20,6 +20,11 @@ const routes = [
         path: '', //当path为空，为默认自路由
         name: 'home',
         component: ()=>import("@/views/home")
+      },
+      {
+        path: '/article',
+        name: 'article',
+        component: () => import("@/views/article")
       }
     ]
   }
