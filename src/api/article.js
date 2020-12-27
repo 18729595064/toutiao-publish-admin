@@ -34,3 +34,17 @@ export const getArticlesChannels = ()=> {
     })
 }
 
+/**
+ * 发布文章
+ */
+export const publishArticle = (data, draft)=>{
+  return request({
+    method: 'POST',
+    url: '/mp/v1_0/articles',
+    params: {
+      draft
+    },
+    data
+  })
+}
+

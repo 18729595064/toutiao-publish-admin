@@ -26,7 +26,7 @@
           <el-form-item label="频道">
             <el-select v-model="channelStatus" placeholder="全部">
               <el-option label="全部" :value="null"></el-option>
-              <el-option :label="channel.name" :value="channel.id" v-for="(channel, index) in channels"></el-option>
+              <el-option :label="channel.name" :value="channel.id" v-for="(channel, index) in channels" :key="index"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="日期">
@@ -189,7 +189,7 @@
               {text: '已删除', type: "info"},
         ],  //标签中用于描述状态列表
         per_page: 10,  //每页文章数
-        page: 1,//第几页
+        page: 1, //第几页
         total_page: 0,  //总文章数
         status: null,  //状态
         channels: [], //频道
@@ -218,8 +218,10 @@
           this.total_page = res.data.data.total_count;
           // console.log(this.total_page);
           this.loading = false;
+        }).catch(err => {
+          console.log(err);
         });
-        // this.loading = false;
+        this.loading = false;
       },
       onCurrentPage(page){
         this.page = page;
@@ -236,7 +238,7 @@
         // console.log(id)
         // console.log(id.toString())
         let articleId = id.toString()
-        console.log(articleId);
+        // console.log(articleId);
         this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
             confirmButtonText: '确定',
             cancelButtonText: '取消',
